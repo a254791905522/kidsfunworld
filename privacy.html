@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy — Hidden Wonders Adventure</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(180deg, #0f0c1a 0%, #161026 45%, #0c0a14 100%);
+            color: #c9bddc;
+            line-height: 1.65;
+        }
+
+        .frame {
+            position: fixed;
+            inset: 0;
+            box-shadow:
+                inset 0 0 0 1px rgba(232, 197, 71, 0.2),
+                inset 0 0 80px rgba(147, 112, 219, 0.08);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .wrap {
+            position: relative;
+            z-index: 1;
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 20px 64px;
+        }
+
+        .masthead {
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 2px solid rgba(232, 197, 71, 0.35);
+        }
+
+        .masthead .kicker {
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: #e8c547;
+            margin-bottom: 10px;
+        }
+
+        .masthead h1 {
+            font-size: clamp(1.6rem, 4vw, 2.1rem);
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+        }
+
+        .masthead .lede {
+            font-size: 1.02rem;
+            color: #b8a8d4;
+            max-width: 38em;
+        }
+
+        .toc {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 36px;
+        }
+
+        .toc a {
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: #241a3d;
+            background: linear-gradient(90deg, #ffe082, #e8c547);
+            padding: 10px 16px;
+            border-radius: 999px;
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .toc a:hover {
+            filter: brightness(1.08);
+        }
+
+        article {
+            background: rgba(28, 22, 48, 0.55);
+            border: 1px solid rgba(147, 112, 219, 0.2);
+            border-radius: 18px;
+            padding: 8px 0 4px;
+            margin-bottom: 28px;
+        }
+
+        section {
+            padding: 22px 24px 24px;
+            border-bottom: 1px solid rgba(147, 112, 219, 0.12);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        section h2 {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        section h2::before {
+            content: "";
+            width: 6px;
+            height: 22px;
+            border-radius: 3px;
+            background: linear-gradient(180deg, #e8c547, #9370db);
+            flex-shrink: 0;
+        }
+
+        section p {
+            font-size: 0.95rem;
+            color: #b0a0cc;
+        }
+
+        section p + p {
+            margin-top: 12px;
+        }
+
+        .callout {
+            margin-top: 16px;
+            padding: 16px 18px;
+            border-radius: 12px;
+            background: rgba(232, 197, 71, 0.08);
+            border-left: 4px solid #e8c547;
+            font-size: 0.92rem;
+            color: #e8dff5;
+        }
+
+        .list-block {
+            margin-top: 14px;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .list-block li {
+            position: relative;
+            padding-left: 22px;
+            margin-bottom: 10px;
+            font-size: 0.93rem;
+            color: #b0a0cc;
+        }
+
+        .list-block li::before {
+            content: "◇";
+            position: absolute;
+            left: 0;
+            color: #9370db;
+            font-size: 0.75rem;
+            top: 2px;
+        }
+
+        .disclaimer {
+            font-size: 0.82rem;
+            color: #7d6e9a;
+            text-align: center;
+            padding: 20px 16px 8px;
+            line-height: 1.6;
+        }
+
+        nav.back {
+            text-align: center;
+            margin-top: 8px;
+        }
+
+        nav.back a {
+            display: inline-block;
+            font-weight: 700;
+            color: #e8c547;
+            text-decoration: none;
+            font-size: 0.95rem;
+            padding: 14px 28px;
+            border-radius: 14px;
+            border: 1px solid rgba(232, 197, 71, 0.4);
+            background: rgba(35, 28, 58, 0.6);
+        }
+
+        nav.back a:hover {
+            background: rgba(147, 112, 219, 0.2);
+            border-color: rgba(186, 170, 255, 0.45);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="frame" aria-hidden="true"></div>
+    <div class="wrap">
+        <header class="masthead">
+            <p class="kicker">Hidden Wonders Adventure</p>
+            <h1>Privacy notice</h1>
+            <p class="lede">This notice describes how the mobile app distributed as <em>Hidden Wonders Adventure</em> on the Apple App Store handles information. It is written for players and parents reviewing the product before install.</p>
+        </header>
+
+        <nav class="toc" aria-label="On this page">
+            <a href="#product">Product</a>
+            <a href="#collection">Data</a>
+            <a href="#device">Your device</a>
+            <a href="#ads">Advertising</a>
+            <a href="#children">Families</a>
+            <a href="#changes">Updates</a>
+        </nav>
+
+        <article>
+            <section id="product">
+                <h2>What this notice covers</h2>
+                <p>It applies to the iOS and iPadOS build of Hidden Wonders Adventure obtained through Apple’s storefront. Third parties such as Apple or advertising partners may have their own policies that govern systems outside the game binary itself.</p>
+            </section>
+
+            <section id="collection">
+                <h2>Information collection</h2>
+                <p>The developer’s current disclosure on the App Store indicates that this app does not collect data from you as part of its own analytics or profiling layer. Apple’s “App Privacy” labels for the title should be treated as the primary, version-specific summary when you are deciding whether to install or update.</p>
+                <div class="callout">If a future update changes what is collected, Apple’s listing will be updated to reflect that. Re-check the App Store page after major updates.</div>
+            </section>
+
+            <section id="device">
+                <h2>On-device play data</h2>
+                <p>Like most games, Hidden Wonders Adventure may store progress, scores, settings, or similar artifacts locally so sessions can resume. That data lives on your device under the app’s sandbox and is removed when you delete the app or erase its data using iOS settings, unless Apple or the system retains separate copies for platform reasons (for example backups you control).</p>
+                <p>Downloading, restoring purchases, or using Game Center involves Apple’s infrastructure; those flows are governed by Apple’s agreements and privacy materials for your Apple ID.</p>
+            </section>
+
+            <section id="ads">
+                <h2>Advertising</h2>
+                <p>The App Store age and content information for this title notes that the app contains advertising. Ad delivery and any measurement that ad networks perform are typically subject to Apple’s tracking and privacy controls (such as App Tracking Transparency where applicable) and to each network’s policies—not to a separate account you create inside Hidden Wonders Adventure.</p>
+            </section>
+
+            <section id="children">
+                <h2>Children and shared devices</h2>
+                <p>The game is rated for broad audiences. On family devices, use Screen Time, Ask to Buy, and other Apple parental tools to manage installs, in-app offers, and exposure to third-party promotional content.</p>
+            </section>
+
+            <section id="changes">
+                <h2>Changes to this notice</h2>
+                <p>This page may be revised when gameplay, platform requirements, or regulatory expectations change in a material way. Review the copy bundled with the app or linked from the store listing after major updates.</p>
+                <ul class="list-block">
+                    <li>This text is informational and does not replace Apple’s terms or applicable law in your country or state.</li>
+                    <li>For rights such as access or deletion tied to your Apple ID, use Apple’s privacy tools in addition to managing apps on your devices.</li>
+                </ul>
+            </section>
+        </article>
+
+        <p class="disclaimer">Apple, App Store, Game Center, and Screen Time are trademarks of Apple Inc. This notice is independent and not endorsed by Apple.</p>
+
+        <nav class="back">
+            <a href="index.html">Back to overview</a>
+        </nav>
+    </div>
+</body>
+
+</html>
